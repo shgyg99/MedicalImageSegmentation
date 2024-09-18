@@ -12,6 +12,10 @@ This repository serves as the template for the third project in the Deep Catalys
 
 Medical image segmentation is a critical task in healthcare, involving the delineation of regions of interest (ROIs) within medical images, such as organs and tumors. In this project, the goal is to develop a deep learning model that can accurately segment MRI images to differentiate between the stomach, intestines, and cancerous tumors. This process requires classifying each pixel in the image, with background pixels assigned a value of zero. Since we are transforming one image into a segmented version of the same image, the appropriate model architecture for this task is an encoder-decoder network. This architecture is well-suited for pixel-wise image-to-image translation tasks, where the encoder extracts features from the input MRI image, and the decoder reconstructs a segmented output image.
 
+<div align="center">
+  <img src="block1.png" alt="Logo" width="700" height="100">
+</div>
+
 ## 2. Related Works
 #### ◼ DeepLab v3+ [https://arxiv.org/abs/1706.05587](https://arxiv.org/abs/1706.05587)
 #### ◼ U-Net [https://doi.org/10.1007/978-3-319-24574-4_28](https://doi.org/10.1007/978-3-319-24574-4_28)
@@ -19,6 +23,10 @@ Medical image segmentation is a critical task in healthcare, involving the delin
 
 ## 3. The Proposed Method
 ### **DeepLab v3+ [https://arxiv.org/abs/1706.05587](https://arxiv.org/abs/1706.05587)**
+<div align="center">
+  <img src="block2.png" alt="Logo" width="1000" height="500">
+</div>
+
 ### **Core Idea of the Transformer Model**
 The Transformer model replaces the traditional sequence-processing models like RNNs (Recurrent Neural Networks) and CNNs (Convolutional Neural Networks) with a mechanism called **self-attention**. Unlike RNNs, which process data sequentially, Transformers process all data points simultaneously, making them highly parallelizable and efficient for large datasets. The **self-attention mechanism** enables the model to focus on different parts of the input at once, weighing the importance of each element relative to others.
 
