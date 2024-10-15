@@ -22,33 +22,13 @@ Medical image segmentation is a critical task in healthcare, involving the delin
 #### ◼ ResUNet++ [https://doi.org/10.1109/ISM46123.2019.00049](https://doi.org/10.1109/ISM46123.2019.00049)
 
 ## 3. The Proposed Method
-### **DeepLab v3+ [https://arxiv.org/abs/1706.05587](https://arxiv.org/abs/1706.05587)**
-<div align="center">
-  <img src="block2.png" alt="Logo" width="1000" height="500">
-</div>
+I trained all three models (**UNet**, **UNet++**, and **DeepLab**) and measured the **Loss Dice** and **Accuracy Dice** values. The results are as follows:
 
-### **Core Idea of the Transformer Model**
-The Transformer model replaces the traditional sequence-processing models like RNNs (Recurrent Neural Networks) and CNNs (Convolutional Neural Networks) with a mechanism called **self-attention**. Unlike RNNs, which process data sequentially, Transformers process all data points simultaneously, making them highly parallelizable and efficient for large datasets. The **self-attention mechanism** enables the model to focus on different parts of the input at once, weighing the importance of each element relative to others.
-
-### **Why This Architecture is Chosen**
-1. **Parallelization**: Transformers can handle large datasets more efficiently than RNNs or CNNs due to their ability to process all elements of an input simultaneously. This would be particularly useful in medical image segmentation, where large volumes of MRI images are often involved.
-  
-2. **Self-Attention for Localization**: In the context of medical image segmentation, focusing on relevant regions (e.g., organs and tumors) is critical. The self-attention mechanism allows the model to attend to crucial parts of the image (like tumor boundaries), improving accuracy. Instead of focusing solely on neighboring pixels like CNNs, the Transformer can consider long-range dependencies in the image, which is key for accurate segmentation in complex images.
-
-3. **Scalability and Flexibility**: Transformers are scalable and adaptable to a wide range of tasks. By training on enough medical images, the model can generalize well across various MRI scans, despite noise, low contrast, or irregular shapes.
-
-### **How This Model Addresses the Problem**
-In medical image segmentation, the goal is to map an image to its pixel-wise classification. Here, the Transformer architecture can be adapted for **image-to-image translation** tasks by using an **encoder-decoder architecture**:
-- **Encoder**: Extracts features from the input image, identifying patterns and structures relevant to segmentation (e.g., tumors, organs).
-- **Self-Attention**: During encoding, the self-attention mechanism identifies key areas within the image that require special attention, which is crucial when distinguishing tumors from healthy tissue.
-- **Decoder**: Uses this encoded information to generate a pixel-wise segmentation map, classifying each pixel as either tumor, organ, or background.
-
-In this case, Transformers provide better accuracy in recognizing boundaries and subtle differences between organs and tumors, thanks to the global attention mechanism.
-
-### **Why Chosen Over Other Models**
-Traditional models like CNNs rely on convolution operations, which are restricted by local neighborhoods and might miss long-range dependencies. The Transformer, by utilizing self-attention, can capture relationships between distant pixels, making it ideal for handling complex medical images where subtle features spread across the image are critical for accurate segmentation.
-
-In summary, the Transformer model, with its self-attention mechanism, provides a flexible and efficient approach to medical image segmentation, offering advantages in handling complex images with noise and irregular structures.
+| Model       | Loss Dice | Accuracy Dice |
+|-------------|-----------|---------------|
+| UNet        | 0.239    | 0.775        |
+| UNet++      | 0.285    | 0.776       |
+| DeepLab     | 0.257    | 0.755        |
 ## 4. Implementation
 This section delves into the practical aspects of the project's implementation.
 
